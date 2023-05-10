@@ -3,7 +3,7 @@ import base64
 import json
  # Set the API endpoint URL and personal access token
 url = "https://azure.asax.ir/tfs/AsaProjects/_apis/teams?api-version=6.0-preview.3"
-pat = "b4obysp27jqhwijhe5zumfjnppkpw4p5xenqkgcx7lealenfu4ya"
+pat = "the personal access token"
 # Set the request headers and encode the personal access token
 headers = {
 "Authorization": "Basic " + base64.b64encode(bytes(":" + pat, "ascii")).decode("ascii")
