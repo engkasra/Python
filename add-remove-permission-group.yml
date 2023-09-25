@@ -1,0 +1,40 @@
+trigger:
+- none
+
+pool:
+  name: ubuntu2004-dev-internet
+variables:
+ - group: manage-permission
+
+parameters:
+  - name: Action
+    displayName: Action
+    type: string
+    values:
+    - add
+    - remove
+  - name: Username
+    displayName: Username
+    type: string
+    default: ""
+  - name: TeamprojectName
+    displayName: 'Team Project Name'
+    type: string
+    default: ""
+  - name: GroupName
+    displayName: 'Group Name'
+    type: string
+    default: ""
+
+stages:
+  - stage: PythonScript
+    displayName: Python-Script
+    jobs:
+      - job: AddRemoveUserToGroup
+        steps:
+        - task: PythonScript@0
+          inputs:
+            scriptSource: 'filePath'
+            scriptPath: '$(System.DefaultWorkingDirectory)/permission-as-a-code/membership-management-python.py'
+            arguments: '"https://azure.asax.ir/tfs" "AsaProjects" "${{ parameters.TeamprojectName }}" "${{ parameters.Action }}" "${{ parameters.Username }}" "${{ parameters.GroupName }}" "$(manage-permission-pat)"'
+            pythonInterpreter: '/usr/bin/python3'
