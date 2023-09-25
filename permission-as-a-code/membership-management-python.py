@@ -29,7 +29,7 @@ pat =  sys.argv[7] # "$(manage-permission-pat)" # input ('Enter Authentication T
 
 # Step 3 _ Check Valid Data In Variables ###
 
-def ValidateInputes():
+def ValidateInputes() -> None:
     print('Starting ValidateInputes')
     allowed_action = "add", "remove"
     if action.lower() not in allowed_action:
