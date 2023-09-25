@@ -36,5 +36,5 @@ stages:
           inputs:
             scriptSource: 'filePath'
             scriptPath: '$(System.DefaultWorkingDirectory)/permission-as-a-code/membership-management-python.py'
-            arguments: '"https://azure.asax.ir/tfs" "AsaProjects" "${{ parameters.TeamprojectName }}" "${{ parameters.Action }}" "${{ parameters.Username }}" "${{ parameters.GroupName }}" "$(manage-permission-pat)"'
+            arguments: '"https://xyz/tfs" "AsaProjects" "${{ parameters.TeamprojectName }}" "${{ parameters.Action }}" "${{ parameters.Username }}" "${{ parameters.GroupName }}" "$(manage-permission-pat)"'
             pythonInterpreter: '/usr/bin/python3'
